@@ -1,0 +1,17 @@
+{
+  "name": "firstdockerapp",
+  "version": "1.0.0",
+  "description": "first docker app with a simple node backend interacting with a mongoDb database running in a mongi container with a mongo express container",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "author": "Benjito",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.2"
+  }
+}
