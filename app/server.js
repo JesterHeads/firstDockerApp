@@ -5,13 +5,14 @@ const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 
 const app = express()
-app.use("/app", express.static(__dirname + "/app"))
+console.log(__dirname)
+app.use("/res", express.static(__dirname + '/res'))
 app.use(bodyParser.urlencoded({
   extended: true
 }))
 app.use(bodyParser.json())
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '/app/index.html'))
+  res.sendFile(path.join(__dirname, 'index.html'))
 })
 
 app.get('/get-profile', function(req, res) {
@@ -52,7 +53,7 @@ app.post('/update-profile', function(req, res){
 })
 
 app.get('/profile-picture', function(req, res){
-  const img = fs.readFileSync('app/profile-1.jpg')
+  const img = fs.readFileSync(path.join(__dirname + '/res/profile-1.jpg'))
   res.writeHead(200, {'Content-type':'image/jpg'})
   res.end(img,'binary')
 })
